@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import House from './House';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import './Dashboard.css'
 
@@ -34,7 +35,7 @@ class Dashboard extends Component {
 
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         let mappedHouses = this.state.houses.map((e, i) => {
             return (
                 <div key={i}>
@@ -54,9 +55,10 @@ class Dashboard extends Component {
         return (
             <div className='Dashboard' >
                 <h1>Dashboard</h1>
-                <Link to='/wizard' >
+                <Link to='/step1' >
                     <button>ADD NEW PROPERTY</button>
                 </Link>
+
                 <hr />
                 <br />
                 <h3>Home Listings</h3>
@@ -67,4 +69,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default connect(null)(Dashboard);
