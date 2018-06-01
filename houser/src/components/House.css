@@ -1,0 +1,12 @@
+.House{
+    background: #DEDEDE;
+    text-align: left;
+    padding:20px;
+    margin: 20px;
+}
+
+
+#DeleteButton{
+    text-align: right;
+    background: rgba(255, 255, 255, 0);
+}
