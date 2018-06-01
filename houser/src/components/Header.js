@@ -5,8 +5,8 @@ import logo from './logo.png';
 export default function Header() {
     return (
         <div className="Header" >
-            <img src={logo} />
-            <h1>Houser</h1>
+           
+            <h1> <img src={logo} /> Houser</h1>
         </div>
     )
 }
