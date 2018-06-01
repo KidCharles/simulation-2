@@ -10,6 +10,9 @@ export default function House(props){
             <p>City: {props.city}</p>
             <p>State: {props.state}</p>
             <p>Zip: {props.zip}</p>
+            <p>Monthly Mortgage: {props.mortgage}</p>
+            <p>Desired Rent: {props.rent}</p>
+
         </div> 
     )
 }

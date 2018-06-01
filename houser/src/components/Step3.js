@@ -6,11 +6,18 @@ import { Link } from 'react-router-dom';
 //import the action creators
 import { addMortgage, addRent } from '../ducks/reducer';
 import './Dashboard.css'
+import axios from 'axios';
 
 class Step3 extends Component {
     constructor() {
         super()
         this.state = {
+            name: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: 0,
+            img: '',
             mortgage: 0,
             rent: 0
         }
@@ -27,12 +34,24 @@ class Step3 extends Component {
     handleClick() {
         this.props.addMortgage(this.state.mortgage)
         this.props.addRent(this.state.rent)
-        this.setState({
-            mortgage: 0,
-            rent: 0
-        })
-    }
 
+        let body = {
+            name: this.props.name,
+            address: this.props.address,
+            city: this.props.city,
+            state: this.props.state,
+            zip: this.props.zip,
+            img: this.props.img,
+            houses: this.props.houses,
+            mortgage: this.props.mortgage,
+            rent: this.props.rent
+        }
+        !body.name
+            ?
+            alert('please fill out form correctly')
+            :
+            axios.post('/api/houses', body).then(() => this.props.history.push('/') )
+    }
 
     render() {
         return (
@@ -51,16 +70,30 @@ class Step3 extends Component {
                 <br />
                 <br />
                 <Link to='/step2'>
-                    <button onClick={() => this.handleClick()}>Previous Step</button>
+                    <button>Previous Step</button>
                 </Link>
 
-                <Link to='/'>
+                {/* <Link to='/'> */}
                     <button onClick={() => this.handleClick()}>Complete</button>
-                </Link>
+                {/* </Link> */}
             </div>
         )
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        name: state.name,
+        address: state.address,
+        city: state.city,
+        state: state.state,
+        zip: state.zip,
+        img: state.img,
+        houses: state.houses,
+        mortgage: state.mortgage,
+        rent: state.rent,
+    }
+}
 
-export default connect(null, { addMortgage, addRent })(Step3);
+
+export default connect(mapStateToProps, { addMortgage, addRent })(Step3);

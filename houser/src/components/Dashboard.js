@@ -46,6 +46,8 @@ class Dashboard extends Component {
                     city={e.city}
                     state={e.state}
                     zip={e.zip}
+                    mortgage={e.mortgage}
+                    rent={e.rent}
                     deleteHouse={this.deleteHouse}
                     houses={this.state.houses}
                     />

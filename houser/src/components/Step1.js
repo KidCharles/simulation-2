@@ -47,13 +47,13 @@ class Step1 extends Component {
         this.props.addState(this.state.state)
         this.props.addZip(this.state.zip)
 
-        this.setState({
-            name: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: 0
-        })
+        // this.setState({
+        //     name: '',
+        //     address: '',
+        //     city: '',
+        //     state: '',
+        //     zip: 0
+        // })
     }
 
     render() {

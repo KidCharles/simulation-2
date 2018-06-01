@@ -21,9 +21,9 @@ class Step2 extends Component {
 
     handleClick() {
         this.props.addImg(this.state.img)
-        this.setState({
-            img: '',
-        })
+        // this.setState({
+        //     img: '',
+        // })
     }
 
     render() {
